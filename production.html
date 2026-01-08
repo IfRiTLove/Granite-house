@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet">
+  <!-- Alternative CDN as fallback -->
+  <script>
+    window.leafletFailed = function() {
+      console.warn('Primary Leaflet CDN failed, trying alternative...');
+      if (!window.L) {
+        var script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js';
+        script.onload = function() { console.log('Alternative Leaflet loaded successfully'); };
+        script.onerror = function() { console.error('All Leaflet CDNs failed!'); };
+        document.head.appendChild(script);
+
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css';
+        document.head.appendChild(link);
+      }
+    };
+
+    // Check if Leaflet loads within 5 seconds
+    setTimeout(function() {
+      if (typeof L === 'undefined') {
+        console.error('Leaflet failed to load within 5 seconds');
+        leafletFailed();
+      }
+    }, 5000);
+  </script>
+  <title>Granite House</title>
+</head>
+
+<body class="production">
+  <header>
+    <div class="header_container header_left">
+      <a href="index.html" class="header_logo"><img src="assets/images/logo.png" alt="Granite House"></a>
+      <form action="" class="header_search">
+        <a href="" class="header_catalog">Каталог</a>
+        <div class="header_search_input">
+          <input type="text" id="" placeholder="Пошук по каталогу">
+          <button type="submit"><img src="assets/images/search-normal.png" alt="Пошук"></button>
+        </div>
+      </form>
+    </div>
+    <div class="header_container header_right">
+      <nav class="header_nav liquid-glass tn-atom">
+        <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position: absolute; overflow: hidden;">
+          <defs>
+            <filter id="liquid-glass-filter" x="0%" y="0%" width="100%" height="100%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.008 0.008" numOctaves="2" seed="92" result="noise" />
+              <feGaussianBlur in="noise" stdDeviation="2" result="blurred" />
+              <feDisplacementMap in="SourceGraphic" in2="blurred" scale="124" xChannelSelector="R"
+                yChannelSelector="G" />
+            </filter>
+          </defs>
+        </svg>
+        <a href="blog.html">Проєкти</a>
+        <a href="production.html">Виробництво</a>
+        <a href="about.html">Про компанію</a>
+        <a href="delivery.html">Оплата</a>
+        <a href="blog.html">Новини</a>
+        <a href="contacts.html">Контакти</a>
+      </nav>
+      <a href="#" class="header_user login-btn" data-action="login"><img src="assets/images/user.png" alt="Увійти"> Увійти</a>
+      <a href="" class="header_menu"></a>
+    </div>
+
+  </header>
+  <main>
+    <section class="hero">
+      <div class="wrapper">
+        <div class="container">
+          <h1>Виробництво<br>та родовища</h1>
+        </div>
+        <img src="assets/images/production-hero.png" alt="Виробництво">
+      </div>
+      <a href="#" class="btn forma-consult">Безкоштовна консультація</a>
+
+    </section>
+    <section class="use manufacture">
+      <div class="container">
+        <ul>
+          <li>Родовища та виробництво</li>
+        </ul>
+        <div class="about_content">
+          <h2>Заводи <br><span>та кар'єри</span></h2>
+          <p>Родовища та виробництво у власності <br><br>
+            — найбільша група компаній, заснована у 2003 році. <br><br>
+            — за роки свого існування стала надійним партнером для архітекторів, дизайнерів, дистриб'юторів та
+            фахівців у
+            сфері будівництва.</p>
+        </div>
+
+      </div>
+      <div class="image-tabs">
+        <div class="image-wrapper">
+          <button class="arrow arrow-left"><img src="assets/images/right.png" alt=""></button>
+          <div class="tabs">
+            <button class="tab active" data-tab="0">Завод Київ</button>
+            <button class="tab" data-tab="1">Завод Львів</button>
+            <button class="tab" data-tab="2">Завод Харків</button>
+          </div>
+          <div class="images">
+            <div class="image active" data-index="0">
+              <img src="assets/images/Завод.png" alt="Завод">
+              <div class="points">
+                <div class="point" style="top:70%;left:75%;" data-text="Цех з переробки каменю" data-number="1"></div>
+                <div class="point" style="top:85%;left:15%;" data-text="Опис точки 2" data-number="2"></div>
+                <div class="point" style="top:35%;left:45%;" data-text="Опис точки 3" data-number="3"></div>
+                <div class="point" style="top:54%;left:56%;" data-text="Опис точки 4" data-number="4"></div>
+              </div>
+            </div>
+            <div class="image" data-index="1">
+              <img src="assets/images/Завод.png" alt="Завод">
+              <div class="points">
+                <div class="point" style="top:50%;left:20%;" data-text="Опис точки A" data-number="1"></div>
+              </div>
+            </div>
+            <div class="image" data-index="2">
+              <img src="assets/images/Завод.png" alt="Завод">
+              <div class="points">
+                <div class="point" style="top:40%;left:60%;" data-text="Опис точки X" data-number="1"></div>
+              </div>
+            </div>
+          </div>
+
+          <button class="arrow arrow-right"><img src="assets/images/right.png" alt=""></button>
+        </div>
+
+        <div class="tooltip"></div>
+      </div>
+      </div>
+      <div class="manufacture-contents">
+        <div class="manufacture-content active" data-content="0">
+          <div class="image-wrapper">
+            <img src="assets/images/about_bg.png" alt="Завод">
+            <img src="assets/images/img3-3.png" alt="Виробництво">
+            <img src="assets/images/mission_image.png" alt="Продукція">
+          </div>
+          <div class="info-manufacture">
+            <div class="text-light">
+              <div class="wrapper">
+                <h6>River Grey — якість світового рівня</h6>
+                <p>ТОВ «SI TONG STONE» — сучасний гранітопереробний завод, розташований у Кушрабатському районі
+                  Самаркандської
+                  області. Підприємство створено у співпраці з китайськими інвесторами та оснащене найновітнішим
+                  обладнанням, що дозволяє
+                  випускати продукцію, яка відповідає міжнародним стандартам якості.</p>
+              </div>
+              <div class="wrapper">
+                <h6>Наші потужності та продукція</h6>
+                <ul>
+                  <li>Виробнича площа: 10 гектарів
+                  </li>
+                  <li>Потужність переробки: до 2,2 млн м² граніту на рік
+                  </li>
+                  <li>Асортимент: стінові плити, облицювальний граніт River Grey різних розмірів, перероблена
+                    гранітна крихта,
+                    сучасні будівельні матеріали.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="text-light">
+              <div class="wrapper">
+                <h6>Географія поставок</h6>
+                <p>Ми пишаємося тим, що вже поставляємо нашу продукцію по всій Україні. Потенціал підприємства
+                  дозволяє щорічно
+                  експортувати продукції на суму до 10 мільйонів доларів США.</p>
+              </div>
+              <div class="wrapper">
+                <h6>Наші переваги</h6>
+                <ul>
+                  <li>Власне сучасне виробництво повного циклу</li>
+                  <li>Суворий контроль якості на кожному етапі</li>
+                  <li>Гнучкі умови співпраці для партнерів</li>
+                  <li>Можливість виконання великих замовлень у найкоротші терміни</li>
+                </ul>
+              </div>
+            </div>
+            <div class="text-light blue">
+              <h6>River Grey — це міцність, довговічність та природна краса, втілені в кожній плиті. Ми відкриті
+                для співпраці
+                та готові запропонувати найкращі рішення для будівельних та архітектурних проєктів.</h6>
+            </div>
+          </div>
+
+        </div>
+        <div class="manufacture-content" data-content="1">
+          <div class="image-wrapper">
+            <img src="assets/images/Завод.png" alt="Завод Узбекистан">
+            <img src="assets/images/production.png" alt="Виробництво">
+            <img src="assets/images/prod.png" alt="Продукція">
+          </div>
+          <div class="info-manufacture">
+            <div class="text-light">
+              <div class="wrapper">
+                <h6>River Grey — якість світового рівня</h6>
+                <p>ТОВ «SI TONG STONE» — сучасний гранітопереробний завод, розташований у Кушрабатському районі
+                  Самаркандської
+                  області. Підприємство створено у співпраці з китайськими інвесторами та оснащене найновітнішим
+                  обладнанням, що дозволяє
+                  випускати продукцію, яка відповідає міжнародним стандартам якості.</p>
+              </div>
+              <div class="wrapper">
+                <h6>Наші потужності та продукція</h6>
+                <ul>
+                  <li>Виробнича площа: 10 гектарів
+                  </li>
+                  <li>Потужність переробки: до 2,2 млн м² граніту на рік
+                  </li>
+                  <li>Асортимент: стінові плити, облицювальний граніт River Grey різних розмірів, перероблена
+                    гранітна крихта,
+                    сучасні будівельні матеріали.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="text-light">
+              <div class="wrapper">
+                <h6>Географія поставок</h6>
+                <p>Ми пишаємося тим, що вже поставляємо нашу продукцію по всій Україні. Потенціал підприємства
+                  дозволяє щорічно
+                  експортувати продукції на суму до 10 мільйонів доларів США.</p>
+              </div>
+              <div class="wrapper">
+                <h6>Наші переваги</h6>
+                <ul>
+                  <li>Власне сучасне виробництво повного циклу</li>
+                  <li>Суворий контроль якості на кожному етапі</li>
+                  <li>Гнучкі умови співпраці для партнерів</li>
+                  <li>Можливість виконання великих замовлень у найкоротші терміни</li>
+                </ul>
+              </div>
+            </div>
+            <div class="text-light blue">
+              <h6>River Grey — це міцність, довговічність та природна краса, втілені в кожній плиті. Ми відкриті
+                для співпраці
+                та готові запропонувати найкращі рішення для будівельних та архітектурних проєктів.</h6>
+            </div>
+          </div>
+
+        </div>
+        <div class="manufacture-content" data-content="2">
+          <div class="image-wrapper">
+            <img src="assets/images/Завод.png" alt="Завод Узбекистан">
+            <img src="assets/images/production.png" alt="Виробництво">
+            <img src="assets/images/prod.png" alt="Продукція">
+          </div>
+          <div class="info-manufacture">
+            <div class="text-light">
+              <div class="wrapper">
+                <h6>River Grey — якість світового рівня</h6>
+                <p>ТОВ «SI TONG STONE» — сучасний гранітопереробний завод, розташований у Кушрабатському районі
+                  Самаркандської
+                  області. Підприємство створено у співпраці з китайськими інвесторами та оснащене найновітнішим
+                  обладнанням, що дозволяє
+                  випускати продукцію, яка відповідає міжнародним стандартам якості.</p>
+              </div>
+              <div class="wrapper">
+                <h6>Наші потужності та продукція</h6>
+                <ul>
+                  <li>Виробнича площа: 10 гектарів
+                  </li>
+                  <li>Потужність переробки: до 2,2 млн м² граніту на рік
+                  </li>
+                  <li>Асортимент: стінові плити, облицювальний граніт River Grey різних розмірів, перероблена
+                    гранітна крихта,
+                    сучасні будівельні матеріали.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="text-light">
+              <div class="wrapper">
+                <h6>Географія поставок</h6>
+                <p>Ми пишаємося тим, що вже поставляємо нашу продукцію по всій Україні. Потенціал підприємства
+                  дозволяє щорічно
+                  експортувати продукції на суму до 10 мільйонів доларів США.</p>
+              </div>
+              <div class="wrapper">
+                <h6>Наші переваги</h6>
+                <ul>
+                  <li>Власне сучасне виробництво повного циклу</li>
+                  <li>Суворий контроль якості на кожному етапі</li>
+                  <li>Гнучкі умови співпраці для партнерів</li>
+                  <li>Можливість виконання великих замовлень у найкоротші терміни</li>
+                </ul>
+              </div>
+            </div>
+            <div class="text-light blue">
+              <h6>River Grey — це міцність, довговічність та природна краса, втілені в кожній плиті. Ми відкриті
+                для співпраці
+                та готові запропонувати найкращі рішення для будівельних та архітектурних проєктів.</h6>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <section class="use ask geography">
+      <div class="container">
+        <ul>
+          <li>Відповімо на всі запитання</li>
+        </ul>
+        <div class="about_content">
+          <h2>Розташування <br><span>заводів та кар'єрів</span></h2>
+        </div>
+
+        <div class="geography-tabs">
+          <div class="tabs">
+            <button class="tab active" data-tab="4">Завод Київ</button>
+            <button class="tab" data-tab="5">Завод Львів</button>
+            <button class="tab" data-tab="6">Завод Харків</button>
+            <div class="hero_buttons">
+              <h6>Безкоштовна<br>консультація</h6>
+              <p>Потрібен тільки номер телефону</p>
+              <a href="" class="btn forma-consult"> <img src="assets/images/right.png" alt="right"></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="geography-images">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d17093.041081446343!2d30.517924159885652!3d50.443042283617885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1suk!2sua!4v1766663771387!5m2!1suk!2sua"
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </section>
+    <section class="use portfolio features">
+      <div class="container">
+        <ul>
+          <li>Зверніть увагу</li>
+        </ul>
+        <div class="about_content">
+          <h2>Особливості <br><span>сировини</span></h2>
+        </div>
+
+
+
+      </div>
+      <div class="wrapper">
+        <div class="top">
+          <h6>Родовища та виробництво у власності</h6>
+          <p>— Власні заводи та оптимізоване виробництво Granite House
+            — Контролюємо весь процес від видобутку до продажу і доставки, що гарантує вам найкраще співвідношення ціни та
+            якості
+            на ринку.Родовища та виробництво у власності</p>
+        </div>
+        <div class="bottom">
+          <img class="image-bottom" src="assets/images/features.png" alt="features">
+          <div class="more-projects">
+            <h3>Більше інформації</h3>
+            <a href="" class="btn">Перейти до блогу <img src="assets/images/right.png" alt="Перейти до блогу"></a>
+          </div>
+        </div>
+      </div>
+
+    </section>
+    <section class="use ask mission consultation">
+      <div class="container">
+
+        <div class="about_content">
+          <h2>Безкоштовна<br>консультація</h2>
+        </div>
+
+        <div class="wrapper-form">
+          <form action="" class="ask_form_no-bg" id="consultation-form-production">
+            <div class="form-top">
+              <h3>Безкоштовна консультація<br>та розрахунок вартості</h3>
+            </div>
+            <div class="portfolio_form">
+              <div class="string">
+                <input type="text" name="name" placeholder="Ваше ім'я*" required>
+                <input type="tel" name="phone" placeholder="Ваш телефон*" required>
+              </div>
+              <button type="submit" class="btn">Отримати консультацію та розрахунок</button>
+              <p>Натискаючи на кнопку, ви погоджуєтесь з <a href="">політикою обробки персональних даних</a></p>
+            </div>
+
+          </form>
+        </div>
+
+
+      </div>
+
+
+    </section>
+  </main>
+  <footer>
+    <div class="top">
+      <a href="index.html" class="logo"><img src="assets/images/LOGO-footer.png" alt="Granite House"></a>
+      <div class="nav-wrapper">
+        <div class="nav">
+          <h3>Каталог товарів</h3>
+          <div class="list">
+            <a href="">Весь асортимент</a>
+            <a href="">Граніт</a>
+            <a href="">Керамограніт</a>
+            <a href="">Пам'ятники</a>
+            <a href="">Декор-панелі</a>
+          </div>
+        </div>
+        <div class="nav">
+          <h3>Про компанію</h3>
+          <div class="list">
+            <a href="production.html">Виробництво</a>
+            <a href="about.html">Про Granite House</a>
+            <a href="blog.html">Проєкти</a>
+            <a href="delivery.html">Співробітництво</a>
+            <a href="blog.html">Статті</a>
+            <a href="contacts.html">Контакти</a>
+            <a href="faq.html">FAQ</a>
+            <a href="vacancies.html">Вакансії</a>
+          </div>
+        </div>
+        <div class="nav">
+          <h3>Контакти</h3>
+          <div class="list">
+            <p>Офіс: <br> Київ, вул. Хрещатик, 22 <br>
+              Львів, просп. Свободи, 15</p>
+            <p>Склад:<br>
+              Київська область, Броварський район, село Княжичі</p>
+            <div class="">
+              <a href="tel:+380441234567">+38 (044) 123-45-67</a>
+              <a href="mailto:info@granite-house.ua">info@granite-house.ua</a>
+              <p>Пн-Пт 9:00 - 18:00</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <a href="">Політика<br>конфіденційності</a>
+      <div class="footer-info">
+        <p>Granite House — власне виробництво<br>та оптові поставки натурального каменю</p>
+        <p>ТОВ «Граніт і плитка»<br>ЄДРПОУ 12345678</p>
+        <p>2025 р ©<br>Всі права захищені</p>
+      </div>
+    </div>
+  </footer>
+  <!-- Попап входу -->
+  <div id="login-modal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Вхід в акаунт</h3>
+        <button id="close-login-modal" class="modal-close">
+          <i class="ri-close-line"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="login-form">
+          <div class="form-group">
+            <input type="email" placeholder="Email або телефон*" required>
+          </div>
+          <div class="form-group">
+            <input type="password" placeholder="Пароль*" required>
+          </div>
+          <div class="form-options">
+            <label class="checkbox-label">
+              <input type="checkbox" name="remember">
+              <span class="checkmark"></span>
+              Запам'ятати мене
+            </label>
+            <a href="#" class="forgot-password">Забули пароль?</a>
+          </div>
+          <button type="submit" class="btn btn-primary">Увійти</button>
+          <div class="form-footer">
+            <p>Немає акаунту? <a href="#" class="register-link">Зареєструватися</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Мобільне меню -->
+  <div id="mobile-menu-overlay" class="mobile-overlay"></div>
+  <div id="mobile-menu" class="mobile-menu">
+      <div class="mobile-menu-header">
+        <a href="index.html" class="site-logo">
+          <img src="assets/images/logo.png" alt="Granite House">
+        </a>
+        <button id="close-mobile-menu" class="close-menu">
+          <i class="ri-close-line"></i>
+        </button>
+      </div>
+      <div class="mobile-form-menu">
+        <a href="#" class="forma-consult">
+          Безкоштовна консультація
+          <img src="assets/images/right.png" alt="">
+        </a>
+      </div>
+      <nav class="mobile-nav">
+        <a href="production.html" class="nav-link catalog">Каталог товарів</a>
+        <div class="list">
+          <a href="production.html" class="nav-link">Плити</a>
+          <a href="production.html" class="nav-link">Брусчатка</a>
+          <a href="production.html" class="nav-link">Бордюри</a>
+        </div>
+        <a href="about.html" class="nav-link catalog">Про компанію</a>
+        <div class="list">
+          <a href="production.html" class="nav-link">Виробництво</a>
+          <a href="about.html" class="nav-link">Про Granite House</a>
+          <a href="blog.html" class="nav-link">Проєкти</a>
+          <a href="blog.html" class="nav-link">Статті</a>
+          <a href="contacts.html" class="nav-link">Контакти</a>
+        </div>
+        <div class="mobile-auth-buttons">
+          <button class="btn btn-outline login-btn" data-action="login">Увійти</button>
+          <button class="btn btn-primary">Реєстрація</button>
+        </div>
+      </nav>
+    </div>
+
+  <script src="assets/js/all.js"></script>
+  </script>
+</body>
+
+</html>

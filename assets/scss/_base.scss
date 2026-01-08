@@ -1,0 +1,207 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+// Базовые стили для нового проекта
+
+// Общие стили
+html {
+  box-sizing: border-box;
+  font-size: $font-size-base;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: $font-primary;
+  font-size: 1rem;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-base;
+  color: $color-dark;
+  background-color: $color-white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+// Типографика
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: $font-weight-bold;
+  line-height: 100%;
+}
+
+h1 {
+  color: $color-light;
+  font-size: 5rem;
+  line-height: 90%;
+
+  @include lg {
+    font-size: 4rem;
+  }
+
+  @include md {
+    font-size: 2.5rem;
+  }
+}
+
+h2 {
+  font-size: 4.75rem;
+
+  @include lg {
+    font-size: 3.75rem;
+  }
+
+  @include md {
+    font-size: 2.25rem;
+  }
+}
+
+h3 {
+  font-size: 2.625rem;
+
+  @include lg {
+    font-size: 2.25rem;
+  }
+
+  @include md {
+    font-size: 1.875rem;
+  }
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1.125rem;
+}
+
+h6 {
+  font-size: 1.25rem;
+}
+
+p {
+  margin: 0;
+  font-weight: $font-weight-regular;
+}
+
+a {
+  color: $color-primary;
+  text-decoration: none;
+  transition: $transition-base;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+ul,
+ol {
+  margin: 0;
+  padding-left: 1.4rem;
+}
+
+// Формы
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+// Изображения
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// Утилитарные классы
+.container {
+  width: 100%;
+  max-width: $container-max-width;
+
+  @include xl {
+    max-width: 1140px;
+  }
+
+  @include lg {
+    max-width: 960px;
+  }
+
+  @include md {
+    max-width: 720px;
+  }
+
+  @include sm {
+    max-width: 540px;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.d-block {
+  display: block;
+}
+
+.d-inline-block {
+  display: inline-block;
+}
+
+.d-none {
+  display: none;
+}
+
+section {
+  max-width: 1880px;
+  width: calc(100% - 40px);
+  margin: 0 auto;
+  padding: 30px;
+
+  @media (max-width: 1024px) {
+    width: calc(100% - 20px);
+    padding: 20px !important;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 10px !important;
+  }
+}

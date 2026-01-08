@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet">
+  <title>Каталог товарів - Granite House</title>
+</head>
+
+<body class="catalog">
+  <header>
+    <div class="header_container header_left">
+      <a href="index.html" class="header_logo"><img src="assets/images/logo.png" alt="Granite House"></a>
+      <form action="" class="header_search">
+        <a href="catalog.html" class="header_catalog">Каталог</a>
+        <div class="header_search_input">
+          <input type="text" id="" placeholder="Пошук по каталогу">
+          <button type="submit"><img src="assets/images/search-normal.png" alt="Пошук"></button>
+        </div>
+      </form>
+    </div>
+    <div class="header_container header_right">
+      <nav class="header_nav liquid-glass tn-atom">
+        <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position: absolute; overflow: hidden;">
+          <defs>
+            <filter id="liquid-glass-filter" x="0%" y="0%" width="100%" height="100%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.008 0.008" numOctaves="2" seed="92" result="noise" />
+              <feGaussianBlur in="noise" stdDeviation="2" result="blurred" />
+              <feDisplacementMap in="SourceGraphic" in2="blurred" scale="124" xChannelSelector="R"
+                yChannelSelector="G" />
+            </filter>
+          </defs>
+        </svg>
+        <a href="blog.html">Проєкти</a>
+        <a href="production.html">Виробництво</a>
+        <a href="about.html">Про компанію</a>
+        <a href="delivery.html">Оплата</a>
+        <a href="blog.html">Новини</a>
+        <a href="contacts.html">Контакти</a>
+      </nav>
+      <a href="#" class="header_user login-btn" data-action="login"><img src="assets/images/user.png" alt="Увійти"> Увійти</a>
+      <a href="" class="header_menu"></a>
+    </div>
+
+  </header>
+
+  <main>
+    <section class="catalog-hero">
+      <div class="container">
+        <h1>Каталог товарів</h1>
+        <p>Широкий вибір гранітних виробів для будь-яких потреб</p>
+      </div>
+    </section>
+
+    <section class="catalog-section">
+      <div class="container">
+        <div class="catalog-layout">
+          <!-- Фільтри -->
+          <aside class="catalog-filters" id="catalog-filters">
+            <div class="filters-header">
+              <h3>Фільтри</h3>
+              <button id="reset-filters" class="reset-btn">Скинути все</button>
+            </div>
+
+            <!-- Категорії -->
+            <div class="filter-group">
+              <div class="filter-header" onclick="toggleFilter('categories')">
+                <h4>Категорії</h4>
+                <i class="ri-arrow-down-s-line"></i>
+              </div>
+              <div class="filter-content" id="categories-content">
+                <label class="filter-option">
+                  <input type="checkbox" value="plates" onchange="applyFilters()">
+                  <span class="checkmark"></span>
+                  Плити
+                </label>
+                <label class="filter-option">
+                  <input type="checkbox" value="paving" onchange="applyFilters()">
+                  <span class="checkmark"></span>
+                  Брусчатка
+                </label>
+                <label class="filter-option">
+                  <input type="checkbox" value="curbs" onchange="applyFilters()">
+                  <span class="checkmark"></span>
+                  Бордюри
+                </label>
+              </div>
+            </div>
+
+            <!-- Ціна -->
+            <div class="filter-group">
+              <div class="filter-header" onclick="toggleFilter('price')">
+                <h4>Ціна</h4>
+                <i class="ri-arrow-down-s-line"></i>
+              </div>
+              <div class="filter-content" id="price-content">
+                <div class="price-range">
+                  <div class="price-inputs">
+                    <input type="number" id="min-price" placeholder="від" onchange="applyFilters()">
+                    <span>-</span>
+                    <input type="number" id="max-price" placeholder="до" onchange="applyFilters()">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Колір -->
+            <div class="filter-group">
+              <div class="filter-header" onclick="toggleFilter('color')">
+                <h4>Колір</h4>
+                <i class="ri-arrow-down-s-line"></i>
+              </div>
+              <div class="filter-content" id="color-content">
+                <label class="filter-option">
+                  <input type="checkbox" value="gray" onchange="applyFilters()">
+                  <span class="checkmark"></span>
+                  Сірий
+                </label>
+                <label class="filter-option">
+                  <input type="checkbox" value="brown" onchange="applyFilters()">
+                  <span class="checkmark"></span>
+                  Коричневий
+                </label>
+                <label class="filter-option">
+                  <input type="checkbox" value="black" onchange="applyFilters()">
+                  <span class="checkmark"></span>
+                  Чорний
+                </label>
+              </div>
+            </div>
+
+            <!-- Розмір -->
+            <div class="filter-group">
+              <div class="filter-header" onclick="toggleFilter('size')">
+                <h4>Розмір</h4>
+                <i class="ri-arrow-down-s-line"></i>
+              </div>
+              <div class="filter-content" id="size-content">
+                <label class="filter-option">
+                  <input type="checkbox" value="small" onchange="applyFilters()">
+                  <span class="checkmark"></span>
+                  Малий
+                </label>
+                <label class="filter-option">
+                  <input type="checkbox" value="medium" onchange="applyFilters()">
+                  <span class="checkmark"></span>
+                  Середній
+                </label>
+                <label class="filter-option">
+                  <input type="checkbox" value="large" onchange="applyFilters()">
+                  <span class="checkmark"></span>
+                  Великий
+                </label>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Продукти -->
+          <div class="catalog-products">
+            <div class="products-header">
+              <div class="results-count">
+                Знайдено <span id="results-count">0</span> товарів
+              </div>
+              <div class="sort-options">
+                <select id="sort-select" onchange="applyFilters()">
+                  <option value="default">За замовчуванням</option>
+                  <option value="price-asc">Ціна: за зростанням</option>
+                  <option value="price-desc">Ціна: за спаданням</option>
+                  <option value="name">За назвою</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="products-grid" id="products-grid">
+              <!-- Продукти будуть додані JavaScript -->
+            </div>
+
+            <div class="pagination" id="pagination">
+              <!-- Пагінація буде додана JavaScript -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Мобільні фільтри -->
+    <div class="mobile-filters-overlay" id="mobile-filters-overlay"></div>
+    <div class="mobile-filters-panel" id="mobile-filters-panel">
+      <div class="mobile-filters-header">
+        <h3>Фільтри</h3>
+        <button id="close-mobile-filters">
+          <i class="ri-close-line"></i>
+        </button>
+      </div>
+      <div class="mobile-filters-content">
+        <!-- Фільтри будуть клоновані сюди для мобільної версії -->
+      </div>
+      <div class="mobile-filters-actions">
+        <button id="apply-mobile-filters" class="btn">Застосувати</button>
+        <button id="reset-mobile-filters" class="btn-outline">Скинути</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Попап входу -->
+  <div id="login-modal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Вхід в акаунт</h3>
+        <button id="close-login-modal" class="modal-close">
+          <i class="ri-close-line"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="login-form">
+          <div class="form-group">
+            <input type="email" placeholder="Email або телефон*" required>
+          </div>
+          <div class="form-group">
+            <input type="password" placeholder="Пароль*" required>
+          </div>
+          <div class="form-options">
+            <label class="checkbox-label">
+              <input type="checkbox" name="remember">
+              <span class="checkmark"></span>
+              Запам'ятати мене
+            </label>
+            <a href="#" class="forgot-password">Забули пароль?</a>
+          </div>
+          <button type="submit" class="btn btn-primary">Увійти</button>
+          <div class="form-footer">
+            <p>Немає акаунту? <a href="#" class="register-link">Зареєструватися</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Мобільне меню -->
+  <div id="mobile-menu-overlay" class="mobile-overlay"></div>
+  <div id="mobile-menu" class="mobile-menu">
+      <div class="mobile-menu-header">
+        <a href="index.html" class="site-logo">
+          <img src="assets/images/logo.png" alt="Granite House">
+        </a>
+        <button id="close-mobile-menu" class="close-menu">
+          <i class="ri-close-line"></i>
+        </button>
+      </div>
+      <div class="mobile-form-menu">
+        <a href="#" class="forma-consult">
+          Безкоштовна консультація
+          <img src="assets/images/right.png" alt="">
+        </a>
+      </div>
+      <nav class="mobile-nav">
+        <a href="catalog.html" class="nav-link catalog">Каталог товарів</a>
+        <div class="list">
+          <a href="catalog.html" class="nav-link">Плити</a>
+          <a href="catalog.html" class="nav-link">Брусчатка</a>
+          <a href="catalog.html" class="nav-link">Бордюри</a>
+        </div>
+        <a href="about.html" class="nav-link catalog">Про компанію</a>
+        <div class="list">
+          <a href="production.html" class="nav-link">Виробництво</a>
+          <a href="about.html" class="nav-link">Про Granite House</a>
+          <a href="blog.html" class="nav-link">Проєкти</a>
+          <a href="blog.html" class="nav-link">Статті</a>
+          <a href="contacts.html" class="nav-link">Контакти</a>
+        </div>
+        <div class="mobile-auth-buttons">
+          <button class="btn btn-outline">Увійти</button>
+          <button class="btn btn-primary">Реєстрація</button>
+        </div>
+      </nav>
+    </div>
+
+  <script src="assets/js/all.js"></script>
+  <script src="assets/js/catalog.js"></script>
+</body>
+
+</html>

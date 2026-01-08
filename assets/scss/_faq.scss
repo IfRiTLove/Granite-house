@@ -1,0 +1,338 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.faq {
+  .hero {
+    background-image: url(../images/hero-faq.png);
+    max-height: 600px;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &::before {
+      content: none;
+    }
+
+    @media (max-width:768px) {
+      max-height: 450px;
+    }
+  }
+
+  .ask-questions {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin-top: 20px;
+
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
+      flex-basis: 500px;
+      flex-shrink: 0;
+
+      h1 {
+        color: $color-primary;
+
+      }
+
+      p {
+        font-size: 22px;
+        font-weight: 400;
+        color: $color-primary;
+      }
+    }
+
+    .hero_buttons {
+      max-height: 283px;
+      max-width: 1084px;
+
+      &::before {
+        background-size: 350px;
+      }
+
+      h6 {
+        max-width: 100%;
+        font-size: 24px;
+        line-height: 150%;
+
+      }
+
+      p {
+        font-size: 20px;
+        max-width: 100%;
+        margin-bottom: auto;
+        margin-top: 20px;
+      }
+    }
+
+    @media (max-width:1024px) {
+      flex-direction: column;
+      padding: 10px !important;
+      width: 100% !important;
+
+      .left {
+        gap: 30px;
+        flex: 0;
+        flex-basis: unset;
+        flex-shrink: 1;
+
+        h1 {
+          font-size: 64px;
+        }
+
+
+      }
+    }
+
+    @media (max-width:768px) {
+      flex-direction: column;
+      gap: 20px;
+
+      .left {
+        gap: 30px;
+
+        h1 {
+          font-size: 40px;
+          line-height: 90%;
+        }
+
+        p {
+          font-size: 14px;
+          line-height: 150%;
+        }
+      }
+
+      .hero_buttons {
+        max-height: 211px;
+        height: 100vh;
+
+        &::before {
+          background-size: 250px;
+        }
+
+        h6 {
+          font-size: 20px;
+        }
+
+        p {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  .accordion-items {
+    justify-content: space-between;
+    margin-top: 50px;
+
+    .left {
+      h2 {
+        color: $color-primary;
+        line-height: 90%;
+      }
+
+
+    }
+
+    .right {
+      max-width: 1084px;
+      width: 100%;
+      height: fit-content;
+      max-height: fit-content;
+      border-radius: $border-radius-md;
+
+      .accordion {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        .accordion-item {
+          background: $color-light;
+          border-radius: $border-radius-lg;
+          user-select: none;
+
+          .accordion-checkbox {
+            display: none;
+
+            &:checked+.accordion-header {
+              background-color: $color-light;
+              border-radius: $border-radius-lg;
+              border-bottom-left-radius: 0;
+              border-bottom-right-radius: 0;
+
+              &::before {
+                transform: translateY(-50%) rotate(0);
+                opacity: 0;
+              }
+
+              &::after {
+                transform: translateY(-50%);
+              }
+            }
+
+            &:checked+.accordion-header+.accordion-content {
+              max-height: 500px;
+              padding: 20px 30px 30px 30px;
+            }
+          }
+
+          .accordion-header {
+            display: block;
+            width: 100%;
+            padding: 30px;
+            background: $color-light;
+            border-radius: $border-radius-lg;
+            text-align: left;
+            cursor: pointer;
+            position: relative;
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 150%;
+            color: $color-primary;
+            transition: all 0.3s ease;
+            padding-right: 60px;
+
+
+
+            span {
+              &::before {
+                content: '';
+                position: absolute;
+                right: 30px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 40px;
+                height: 40px;
+                background-color: #DACEC4;
+                border-radius: 10px;
+                z-index: 0;
+              }
+            }
+
+            &::after,
+            &::before {
+              content: '';
+              position: absolute;
+              right: 40px;
+              top: 50%;
+              width: 20px;
+              height: 20px;
+              background-image: url(../images/minus.png);
+              background-size: contain;
+              background-repeat: no-repeat;
+              background-position: center;
+              transition: all 0.3s ease;
+              z-index: 1;
+            }
+
+            &::before {
+              transform: translateY(-50%) rotate(90deg);
+            }
+
+            &::after {
+              transform: translateY(-50%);
+            }
+          }
+
+          .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 30px;
+            background: $color-light;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            border-radius: $border-radius-lg;
+            border-radius: 0 0 $border-radius-lg $border-radius-lg ;
+            color: $color-primary;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 150%;
+          }
+        }
+
+        @media (max-width:1024px) {
+          gap: 10px;
+        }
+      }
+
+
+    }
+
+    @media (max-width:1024px) {
+      .left {
+        h2 {
+          font-size: 60px;
+
+          br {
+            display: none;
+          }
+        }
+      }
+    }
+
+    @media (max-width:768px) {
+      .left {
+        h2 {
+          font-size: 39px;
+
+          br {
+            display: block;
+          }
+        }
+      }
+
+      .right {
+        .accordion {
+          .accordion-item {
+            .accordion-header {
+              font-size: 16px;
+              padding: 20px;
+              padding-right: 70px;
+
+              span {
+                &::before {
+
+                  right: 10px;
+
+                }
+              }
+
+              &::after,
+              &::before {
+                right: 20px;
+              }
+            }
+
+            .accordion-content {
+              font-size: 14px;
+              padding: 0 10px;
+            }
+
+            .accordion-checkbox {
+              &:checked+.accordion-header {
+                padding-top: 20px;
+
+                &::before {
+                  transform: translateY(-50%) rotate(0);
+                  opacity: 0;
+                }
+
+                &::after {
+                  transform: translateY(-50%);
+                }
+              }
+
+              &:checked+.accordion-header+.accordion-content {
+                max-height: 500px;
+                padding: 10px 10px 20px 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }
+}

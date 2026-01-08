@@ -1,0 +1,296 @@
+@use "sass:color";
+@use "variables" as *;
+@use "mixins" as *;
+
+// Кнопки
+.btn {
+  height: 40px;
+  padding: 0 40px;
+  border-radius: $border-radius-lg;
+  background-color: $color-btn-blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-white;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 100%;
+  height: 60px;
+
+  &:hover {
+    filter: brightness(1.4);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    color: $color-light;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.25rem rgba($color-primary, 0.25);
+  }
+
+  // Варианты кнопок
+  &--white {
+    height: 40px;
+    padding: 0 40px;
+    border-radius: $border-radius-md;
+    background-color: $color-btn-white;
+    color: $color-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background-color: rgb(232, 221, 211) !important;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      color: $color-light;
+      transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
+    }
+  }
+
+  &--outline {
+    background-color: transparent;
+    border-color: $color-primary;
+    color: $color-primary;
+
+    &:hover {
+      background-color: $color-primary;
+      color: $color-white;
+    }
+  }
+
+  &--block {
+    display: block;
+    width: 100%;
+  }
+}
+
+
+.hero_buttons {
+  max-width: 380px;
+  max-height: 230px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #1F2F61;
+  border-radius: $border-radius-md;
+  padding: 20px;
+  position: relative;
+
+  h6 {
+    font-weight: 700;
+    line-height: 150%;
+    color: #F1E9E2;
+    z-index: 100;
+  }
+
+  p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+    color: #F1E9E2;
+    max-width: 103px;
+    z-index: 100;
+  }
+
+  .btn {
+    width: 100px;
+    z-index: 100;
+    background-color: #2E3F71;
+    height: 40px;
+    max-height: 40px;
+    min-height: 40px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(../images/test.png);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    z-index: 0;
+    border-radius: $border-radius-md;
+  }
+
+  @media(max-width:1745px) {
+    max-width: 450px;
+  }
+
+  @media(max-width: 768px) {
+    max-width: 100%;
+    height: 196px;
+
+    p {
+      max-width: 192px;
+    }
+  }
+}
+
+.hero_buttons.white {
+  background-color: $color-light;
+
+  h6,
+  p {
+    color: $color-primary;
+    z-index: 100;
+  }
+
+  p {
+    max-width: 173px;
+  }
+
+  .btn--white {
+    width: 100px;
+    z-index: 100;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(../images/test2.png);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    z-index: 0;
+    border-radius: $border-radius-md;
+  }
+
+  @media(max-width: 768px) {
+    height: 196px;
+  }
+}
+
+.ask_form_no-bg {
+  max-height: 365px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: $border-radius-md;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+
+  .form-top {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    h3 {
+      color: #ffffff;
+    }
+
+
+  }
+
+  .portfolio_form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .string {
+      display: flex;
+      gap: 10px;
+      justify-content: space-between;
+
+      input {
+        border: none;
+        background: $color-light;
+        padding-left: 20px;
+        color: $color-primary;
+        font-size: 15px;
+        font-weight: 400;
+        border-radius: 50px;
+        height: 50px;
+        max-width: 100%;
+        width: 100%;
+
+        &::placeholder {
+          color: $color-primary;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    .btn {
+      border: none;
+      outline: none;
+      width: 100%;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 700;
+      height: 50px;
+      border-radius: 50px;
+      background-color: $color-primary;
+      cursor: pointer;
+      height: 60px;
+      margin-top: 10px;
+    }
+
+    p {
+      text-align: center;
+      color: #F1E9E2;
+
+      a {
+        color: #F1E9E2;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  @media(max-width: 630px) {
+    max-height: 480px;
+    padding: 20px 10px;
+
+    .portfolio_form {
+      .string {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .btn {
+        font-size: 14px;
+        line-height: 100%;
+        font-weight: 700;
+      }
+
+      p {
+        font-size: 12px;
+
+        a {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
+
+*::-webkit-scrollbar {
+  width: 20px; // ширина скроллбара
+  height: 20px; // если нужен горизонтальный
+}
+
+*::-webkit-scrollbar-track {
+  background: $color-light; // цвет фона дорожки
+  border-radius: $border-radius-md;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #97A5B4; // цвет ползунка
+  border-radius: $border-radius-md;
+
+  
+}

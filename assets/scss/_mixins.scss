@@ -1,0 +1,133 @@
+@use "variables" as *;
+
+// Миксины для адаптивного дизайна
+@mixin sm {
+  @media (max-width: $breakpoint-sm) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (max-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (max-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (max-width: $breakpoint-xl) {
+    @content;
+  }
+}
+
+// Миксин для гибкого контейнера
+@mixin flex($direction: row, $wrap: nowrap, $justify: flex-start, $align: stretch, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+
+// Миксин для плавного перехода
+@mixin transition($properties...) {
+  $transitions: ();
+  @each $property in $properties {
+    $transitions: append($transitions, $property 0.3s ease, comma);
+  }
+  transition: $transitions;
+}
+
+// Примеры дополнительных миксинов (закомментированы)
+// Миксин для абсолютного позиционирования
+// @mixin absolute($top: auto, $right: auto, $bottom: auto, $left: auto) {
+//   position: absolute;
+//   top: $top;
+//   right: $right;
+//   bottom: $bottom;
+//   left: $left;
+// }
+
+// Миксин для создания клипнутого текста с многоточием
+// @mixin text-ellipsis($lines: 1) {
+//   @if $lines == 1 {
+//     white-space: nowrap;
+//     text-overflow: ellipsis;
+//     overflow: hidden;
+//   } @else {
+//     display: -webkit-box;
+//     -webkit-line-clamp: $lines;
+//     -webkit-box-orient: vertical;
+//     overflow: hidden;
+//   }
+// }
+
+// Миксин для градиентной заливки
+// @mixin gradient($direction: to bottom, $start-color: $color-primary, $end-color: $color-primary-dark) {
+//   background-image: linear-gradient($direction, $start-color, $end-color);
+// }
+
+// Миксин для теней
+// @mixin box-shadow($shadow: $shadow-md) {
+//   box-shadow: $shadow;
+// }
+
+// Миксин для размеров
+// @mixin size($width, $height: $width) {
+//   width: $width;
+//   height: $height;
+// }
+
+// Миксин для центрирования элемента
+// @mixin center($horizontal: true, $vertical: true) {
+//   position: absolute;
+//   
+//   @if $horizontal and $vertical {
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//   } @else if $horizontal {
+//     left: 50%;
+//     transform: translateX(-50%);
+//   } @else if $vertical {
+//     top: 50%;
+//     transform: translateY(-50%);
+//   }
+// }
+
+// Миксин для изображений с полным покрытием контейнера
+// @mixin img-cover {
+//   width: 100%;
+//   height: 100%;
+//   object-fit: cover;
+// }
+
+// Миксин для создания кнопки
+// @mixin button-style($bg: $color-primary, $color: $color-white, $border: none, $radius: $border-radius-md) {
+//   display: inline-block;
+//   background-color: $bg;
+//   color: $color;
+//   border: $border;
+//   border-radius: $radius;
+//   padding: 0.75rem 1.5rem;
+//   font-weight: 500;
+//   text-align: center;
+//   text-decoration: none;
+//   cursor: pointer;
+//   transition: $transition-base;
+//   
+//   &:hover {
+//     background-color: darken($bg, 10%);
+//   }
+//   
+//   &:focus {
+//     outline: none;
+//     box-shadow: 0 0 0 3px rgba($bg, 0.3);
+//   }
+// }

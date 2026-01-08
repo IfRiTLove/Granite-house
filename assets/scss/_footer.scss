@@ -1,0 +1,163 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+footer {
+  background-color: $color-primary;
+  padding: 50px 30px;
+  width: calc(100% - 40px);
+  max-width: 1880px;
+  border-radius: $border-radius-md;
+  margin: 0 auto;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 75px;
+
+  .top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 50px;
+
+    .logo {
+      max-width: 198px;
+      width: 100%;
+      margin-right: 260px;
+
+      img {
+        max-width: 198px;
+        width: 100%;
+      }
+    }
+
+    .nav-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 50px;
+      width: 100%;
+      flex-basis: 1100px;
+      flex-grow: 1;
+      flex-wrap: wrap;
+
+      .nav {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        flex-basis: 340px;
+        flex-grow: 1;
+        max-width: 415px;
+
+        h3,
+        p {
+          color: $color-light;
+        }
+
+        .list {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+
+          a {
+            color: $color-light;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 150%;
+          }
+        }
+      }
+
+      @media(max-width: 1115px) {
+        justify-content: flex-start;
+        gap: 50px 100px;
+      }
+
+      @media(max-width: 768px) {
+        gap: 30px;
+      }
+    }
+
+
+  }
+
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    flex-wrap: wrap;
+
+    a {
+      max-width: 198px;
+      width: 100%;
+      margin-right: 260px;
+      color: $color-light;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 150%;
+    }
+
+    .footer-info {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 50px;
+      flex-wrap: wrap;
+      width: 100%;
+      flex-basis: 1100px;
+      flex-grow: 1;
+
+      p {
+        color: $color-light;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 150%;
+        flex-basis: 340px;
+        flex-grow: 1;
+        max-width: 415px;
+      }
+    }
+  }
+
+  @media(max-width: 1024px) {
+    margin-top: 70px;
+    width: calc(100% - 20px);
+  }
+
+  @media(max-width: 768px) {
+    margin-top: 50px;
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+
+    .top {
+      .logo{
+        margin: 0;
+      }
+      .nav-wrapper {
+        gap: 50px;
+
+        .nav {
+          flex-basis: 340px;
+          flex-grow: 1;
+          max-width: 300px;
+        }
+      }
+    }
+
+    .bottom {
+      grid-template-columns: repeat(2, 1fr);
+      display: grid;
+
+      a {
+        margin: 0;
+      }
+
+      .footer-info {
+        display: contents;
+      }
+      @media (max-width:550px) {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+  }
+}

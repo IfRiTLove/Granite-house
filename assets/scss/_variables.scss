@@ -1,0 +1,42 @@
+@use "sass:color";
+
+// Основные переменные для нового проекта
+$color-primary: #213160;
+$color-primary-light: color.adjust($color-primary, $lightness: 10%);
+$color-primary-dark: color.adjust($color-primary, $lightness: -10%);
+$color-white: #ffffff;
+$color-black: #000000;
+$color-dark: #1E1E1E;
+$color-gray: #383838;
+$color-light-gray: #eeeeee;
+$color-light: #F1E9E2;
+$color-btn-white: #DACEC4;
+$color-btn-blue: #213160;
+
+// Типографика
+$font-primary: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font-size-base: 16px;
+$line-height-base: 1.5;
+
+// Веса шрифтов
+$font-weight-regular: 400;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Брейкпоинты
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// Контейнер
+$container-padding: 15px;
+$container-max-width: 1200px;
+
+// Скругления
+$border-radius-sm: 10px;
+$border-radius-md: 20px;
+$border-radius-lg: 30px;
+
+// Переходы
+$transition-base: all 0.3s ease;

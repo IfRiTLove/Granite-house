@@ -1,0 +1,353 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.vacancies {
+  .hero {
+    background-image: url(../images/hero-vacancies.png);
+    max-height: 600px;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &::before {
+      content: none;
+    }
+
+    @media (max-width:768px) {
+      max-height: 450px;
+    }
+  }
+
+  .ask-questions {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin-top: 20px;
+
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
+      flex-basis: 500px;
+      flex-shrink: 0;
+
+      h1 {
+        color: $color-primary;
+
+      }
+
+      p {
+        font-size: 22px;
+        font-weight: 400;
+        color: $color-primary;
+      }
+    }
+
+    .hero_buttons {
+      max-height: 283px;
+      max-width: 1084px;
+
+      &::before {
+        background-size: 350px;
+      }
+
+      h6 {
+        max-width: 100%;
+        font-size: 24px;
+        line-height: 150%;
+
+      }
+
+      p {
+        font-size: 20px;
+        max-width: 100%;
+        margin-bottom: auto;
+        margin-top: 20px;
+      }
+    }
+
+    @media (max-width:1024px) {
+      flex-direction: column;
+      padding: 10px !important;
+      width: 100% !important;
+
+      .left {
+        gap: 30px;
+        flex: 0;
+        flex-basis: unset;
+        flex-shrink: 1;
+
+        h1 {
+          font-size: 64px;
+        }
+
+
+      }
+    }
+
+    @media (max-width:768px) {
+      flex-direction: column;
+      gap: 20px;
+
+      .left {
+        gap: 30px;
+
+        h1 {
+          font-size: 40px;
+          line-height: 90%;
+        }
+
+        p {
+          font-size: 14px;
+          line-height: 150%;
+        }
+      }
+
+      .hero_buttons {
+        max-height: 211px;
+        height: 100vh;
+
+        &::before {
+          background-size: 250px;
+        }
+
+        h6 {
+          font-size: 20px;
+        }
+
+        p {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  .vacancies-list {
+    margin-top: 40px;
+    user-select: none;
+
+    .vacancies-filter {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      gap: 20px;
+      background-color: $color-light;
+      border-radius: $border-radius-md;
+      padding: 20px;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
+
+      .filter-buttons {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+      }
+
+
+
+      .filter-btn {
+        padding: 0 40px;
+        background: transparent;
+        color: #fff;
+        border-radius: $border-radius-lg;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: $transition-base;
+        position: relative;
+        overflow: hidden;
+        height: 60px;
+        border: unset;
+        background-color: #DACEC4;
+
+
+        &:hover::before {
+          left: 100%;
+        }
+
+
+
+        &.active {
+          background: $color-primary;
+          color: $color-white;
+
+        }
+      }
+    }
+
+    .vacancies-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+
+
+      .vacancy-card {
+        background: $color-light;
+        border-radius: $border-radius-md;
+        padding: 50px;
+        transition: $transition-base;
+        position: relative;
+        overflow: hidden;
+
+
+
+
+        .top {
+          display: flex;
+          flex-direction: column;
+          gap: 40px;
+          margin-bottom: 40px;
+
+          h3 {
+            font-size: 32px;
+            color: $color-primary;
+          }
+
+          .info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            p {
+              font-size: 20px;
+              font-weight: 400;
+              color: $color-primary;
+              line-height: 150%;
+            }
+
+
+            .price {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+
+              h6 {
+                font-size: 24px;
+                font-weight: 700;
+                color: $color-primary;
+                line-height: 150%;
+              }
+
+              p {
+                font-size: 20px;
+                font-weight: 400;
+                color: $color-primary;
+                line-height: 150%;
+              }
+            }
+          }
+        }
+
+        .btn {
+          display: flex;
+          justify-content: space-between;
+          max-width: 246px;
+          width: 100%;
+          background-color: #2E3F71;
+          height: 50px;
+        }
+      }
+
+      @media(max-width:1400px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width:1024px) {
+      padding: 0px !important;
+      margin-top: 50px;
+
+      .vacancies-filter {
+        margin-bottom: 20px;
+        padding: 10px;
+
+        .filter-buttons {
+          .filter-btn {
+            padding: 0 20px;
+            height: 50px;
+          }
+        }
+      }
+
+      .vacancies-grid {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 10px;
+
+        .vacancy-card {
+          padding: 20px;
+
+          .top {
+            gap: 20px;
+
+            h3 {
+              font-size: 24px;
+            }
+
+            .info {
+              .price {
+                h6 {
+                  font-size: 20px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @media(max-width:768px) {
+      padding: 0px !important;
+      margin-top: 10px;
+
+      .vacancies-filter {
+        margin-bottom: 20px;
+
+        .filter-buttons {
+          .filter-btn {
+            padding: 0 20px;
+            height: 50px;
+          }
+        }
+      }
+
+      .vacancies-grid {
+        width: calc(100% - 20px);
+        margin: 0 auto;
+
+        .vacancy-card {
+          padding: 20px 10px;
+
+          .top {
+            gap: 20px;
+
+            h3 {
+              font-size: 20px;
+            }
+
+            .info {
+              p {
+                font-size: 14px;
+              }
+
+              .price {
+                h6 {
+                  font-size: 16px;
+                }
+
+                p {
+                  font-size: 20px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+}
